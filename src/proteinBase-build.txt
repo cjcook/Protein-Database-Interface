@@ -1,0 +1,109 @@
+/* Date: 26 Apr 2019 */
+/* A database builder file; edit as necessary */
+/* To Run build the database, make sure that your CSV data files are found in the data/ directory. */
+
+/* How to run this builder */
+/* cat proteinBase_build.txt | sqlite3 proteinDB.sqlite3 */
+
+
+/* Name: Chris Cook   /*
+
+
+/* Create your tables. Modify the below code to create your tables. */
+
+drop table Park;
+create table Park (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+
+drop table Apop;
+create table Apop (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+
+drop table Alz;
+create table Alz (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+drop table Asthma;
+create table Asthma (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+drop table Celiac;
+create table Celiac (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+drop table Liver;
+create table Liver (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+drop table Lupus;
+create table Lupus (
+        protID VARCHAR NOT NULL PRIMARY KEY,
+        entryName VARCHAR ,
+        Status VARCHAR ,
+        ProteinName VARCHAR ,
+        GeneName VARCHAR ,
+        Organism VARCHAR ,
+        Length numeric
+);
+
+
+/* Import your data files. Use the below code to populate the tables from above. */
+/* If your data is not separated by tabs, then change the following line to reflect the delimiter. */
+.separator "\t"
+
+/* find the file and load it into sqlite3 which will create the database.*/
+.import data/uniprot-apoptosis.tab Apop
+.import data/uniprot-parkinson.tab Park
+.import data/uniprot-alzheimer.tab Alz
+.import data/uniprot-asthma.tab Asthma
+.import data/uniprot-celiac+disease.tab Celiac
+.import data/uniprot-liver+disease.tab Liver
+.import data/uniprot-Lupus.tab Lupus
+
+
+/* How to run this builder */
+/* cat proteinBase_build.txt | sqlite3 proteinDB.sqlite3 */
